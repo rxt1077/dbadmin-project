@@ -110,5 +110,5 @@ INSERT INTO music_catalog (artist, media_type, song_title, album_title, release_
   ('FINNEAS', 'song', 'Where the Poison Is', '', 2020),
   ('FINNEAS', 'song', 'Another Year', '', 2020),
   ('FINNEAS', 'song', 'American Cliché', '', 2021),
-  ('FINNEAS', 'song', 'Till Forever Falls Apart', '', 2021),
+  ('FINNEAS', 'song', 'Till Forever Falls Apart', '', 2021)
 ;
