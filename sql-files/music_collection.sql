@@ -43,6 +43,8 @@ CREATE TABLE music_catalog (
   artist varchar(100) NOT NULL,
   media_type text REFERENCES valid_media_type (mtype),
   song_title varchar(100) NOT NULL DEFAULT '',
+  collab boolean DEFAULT false,
+  collab_artists varchar(255) DEFAULT NULL,
   album_title varchar(100) NOT NULL DEFAULT '',
   release_year varchar(4) DEFAULT NULL,
   PRIMARY KEY (id, artist, song_title),
