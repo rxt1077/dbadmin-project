@@ -781,7 +781,8 @@ INSERT INTO riaa_certifications (media_id, riaa_cert) VALUES
   (29, 'Gold'),
   (30, 'Platinum'),
   (32, '3x Platinum'),
-  (33, 'Gold')
+  (33, 'Gold'),
+  (53, 'Gold')
 ;
 
 
