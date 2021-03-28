@@ -46,7 +46,7 @@ CREATE TABLE music_catalog (
   collab_artists varchar(255) DEFAULT NULL,
   album_name varchar(100) NOT NULL DEFAULT '',
   release_year varchar(4) DEFAULT NULL,
-  PRIMARY KEY (id, artist, song_name)
+  PRIMARY KEY (id, artist, song_name, album_name)
 );
 
 INSERT INTO music_catalog (artist, media_type, song_name, collab, collab_artists, album_name, release_year) VALUES
@@ -923,7 +923,25 @@ INSERT INTO riaa_certifications (media_id, riaa_cert) VALUES
   (681, '3x Multi-Platinum')
 ;
 
+DROP TABLE IF EXISTS grammy_wins;
+CREATE TABLE grammy_wins (
+  media_id int DEFAULT NULL,
+  grammy_category text NOT NULL,
+  win_artist varchar(100) NOT NULL,
+  win_song varchar(100) DEFAULT NULL,
+  win_album varchar(100) DEFAULT NULL,
+  win_media_type text REFERENCES valid_media_type (mtype) DEFAULT NULL, 
+  win_year varchar(4) NOT NULL,
+  PRIMARY KEY (win_artist, grammy_category, win_year), 
+  CONSTRAINT grammys_fkey FOREIGN KEY (media_id, win_artist, win_song, win_album) REFERENCES music_catalog (id, artist, song_name, album_name)
+);
 
-
-
-
+INSERT INTO grammy_wins (media_id, grammy_category, win_artist, win_song, win_album, win_media_type, win_year) VALUES
+  (NULL, 'Best New Artist', 'Billie Eilish', NULL, NULL, NULL, 2020),
+  (17, 'Album of the Year', 'Billie Eilish', NULL, 'WHEN WE ALL FALL ASLEEP, WHERE DO WE GO', 'album', 2020),
+  (17, 'Best Pop Vocal Album', 'Billie Eilish', NULL, 'WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?', 'album', 2020),
+  (19, 'Record of the Year', 'Billie Eilish', 'bad guy', NULL, 'song', 2020),
+  (19, 'Song of the Year', 'Billie Eilish', 'bad guy', NULL, 'song', 2020),
+  (32, 'Record of the Year', 'Billie Eilish', 'everything i wanted', NULL, 'song', 2021),
+  (33, 'Best Song Written for Visual Media', 'Billie Eilish', 'No Time To Die', NULL, 'song', 2021)
+;
