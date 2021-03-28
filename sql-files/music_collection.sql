@@ -834,7 +834,28 @@ INSERT INTO riaa_certifications (media_id, riaa_cert) VALUES
   (321, '3x Platinum'),
   (330, 'Platinum'),
   (335, 'Platinum'),
-  (336, '2x Platinum')
+  (336, '2x Platinum'),
+  (349, '3x Platinum'),
+  (352, 'Platinum'),
+  (353, 'Platinum'),
+  (356, '5x Platinum'),
+  (358, '3x Platinum'),
+  (360, 'Platinum'),
+  (361, 'Diamond (10x Platinum)'),
+  (369, '3x Platinum'),
+  (370, 'Platinum'),
+  (371, 'Platinum'),
+  (372, 'Platinum'),
+  (375, '8x Platinum'),
+  (376, 'Platinum'),
+  (377, '5x Platinum'),
+  (378, '4x Platinum'),
+  (379, 'Platinum'),
+  (381, 'Platinum'),
+  (386, '2x Platinum'),
+  (394, '4x Platinum'),
+  (400, '8x Platinum'),
+  (405, 'Platinum')
 ;
 
 
