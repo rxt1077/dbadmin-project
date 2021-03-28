@@ -748,14 +748,42 @@ INSERT INTO music_catalog (artist, media_type, song_name, collab, collab_artists
 
 DROP TABLE IF EXISTS riaa_certifications;
 CREATE TABLE riaa_certifications (
-  media_id int PRIMARY KEY REFERENCES music_catalog (id)NOT NULL,
+  media_id int PRIMARY KEY REFERENCES music_catalog (id) NOT NULL,
   riaa_cert varchar(100) DEFAULT NULL
 );
 
-/* INSERT INTO riaa_certifications (media_id, riaa_cert) VALUES
-  
+INSERT INTO riaa_certifications (media_id, riaa_cert) VALUES
+  (1, 'Gold'),
+  (2, 'Platinum'),
+  (3, '3x Platinum'),
+  (4, '2x Platinum'),
+  (5, 'Platinum'),
+  (6, 'Platinum'),
+  (7, '2x Platinum'),
+  (8, 'Platinum'),
+  (9, 'Gold'),
+  (10, 'Platinum'),
+  (11, 'Gold'),
+  (12, 'Gold'),
+  (13, 'Platinum'),
+  (14, '2x Platinum'),
+  (17, '3x Platinum'),
+  (19, '6x Platinum'),
+  (20, 'Platinum'),
+  (21, '2x Platinum'),
+  (22, 'Platinum'),
+  (23, 'Platinum'),
+  (24, '4x Platinum'),
+  (25, 'Gold'),
+  (26, 'Platinum'),
+  (27, '3x Platinum'),
+  (28, 'Gold'),
+  (29, 'Gold'),
+  (30, 'Platinum'),
+  (32, '3x Platinum'),
+  (33, 'Gold')
 ;
-*/
+
 
 
 
