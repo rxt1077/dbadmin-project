@@ -7,10 +7,9 @@ CREATE DATABASE music_collection;
 
 DROP TABLE IF EXISTS artists;
 CREATE TABLE artists (
-  name varchar(100) NOT NULL,
+  name varchar(100) PRIMARY KEY NOT NULL,
   genre varchar(100) NOT NULL,
-  record_label varchar(100),
-  PRIMARY KEY (name)
+  record_label varchar(100)
 );
 
 INSERT INTO artists (name, genre, record_label) VALUES
@@ -39,16 +38,15 @@ INSERT INTO valid_media_type (mtype) VALUES
 
 DROP TABLE IF EXISTS music_catalog;
 CREATE TABLE music_catalog (
+  artist varchar(100) REFERENCES artists (name) NOT NULL,
   id serial NOT NULL UNIQUE,
-  artist varchar(100) NOT NULL,
   media_type text REFERENCES valid_media_type (mtype),
   song_title varchar(100) NOT NULL DEFAULT '',
   collab boolean DEFAULT NULL,
   collab_artists varchar(255) DEFAULT NULL,
   album_title varchar(100) NOT NULL DEFAULT '',
   release_year varchar(4) DEFAULT NULL,
-  PRIMARY KEY (id, artist, song_title),
-  CONSTRAINT music_cat_idx FOREIGN KEY (artist) REFERENCES artists (name) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (id, artist, song_title)
 );
 
 INSERT INTO music_catalog (artist, media_type, song_title, collab, collab_artists, album_title, release_year) VALUES
@@ -747,3 +745,18 @@ INSERT INTO music_catalog (artist, media_type, song_title, collab, collab_artist
   ('Tyler, the Creator', 'song', 'Group B', NULL, NULL, '', 2020),
   ('Tyler, the Creator', 'song', 'Tell Me How', NULL, NULL, '', 2021)
 ;
+
+DROP TABLE IF EXISTS riaa_certifications;
+CREATE TABLE riaa_certifications (
+  media_id int PRIMARY KEY REFERENCES music_catalog (id)NOT NULL,
+  riaa_cert varchar(100) DEFAULT NULL
+);
+
+/* INSERT INTO riaa_certifications (media_id, riaa_cert) VALUES
+  
+;
+*/
+
+
+
+
