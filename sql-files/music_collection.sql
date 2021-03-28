@@ -41,15 +41,15 @@ CREATE TABLE music_catalog (
   artist varchar(100) REFERENCES artists (name) NOT NULL,
   id serial NOT NULL UNIQUE,
   media_type text REFERENCES valid_media_type (mtype),
-  song_title varchar(100) NOT NULL DEFAULT '',
+  song_name varchar(100) NOT NULL DEFAULT '',
   collab boolean DEFAULT NULL,
   collab_artists varchar(255) DEFAULT NULL,
-  album_title varchar(100) NOT NULL DEFAULT '',
+  album_name varchar(100) NOT NULL DEFAULT '',
   release_year varchar(4) DEFAULT NULL,
-  PRIMARY KEY (id, artist, song_title)
+  PRIMARY KEY (id, artist, song_name)
 );
 
-INSERT INTO music_catalog (artist, media_type, song_title, collab, collab_artists, album_title, release_year) VALUES
+INSERT INTO music_catalog (artist, media_type, song_name, collab, collab_artists, album_name, release_year) VALUES
   ('Billie Eilish', 'song', 'Six Feet Under', NULL, NULL, '', 2016),
   ('Billie Eilish', 'ep', '', NULL, NULL, 'Don''t Smile at Me', 2017),
   ('Billie Eilish', 'song', 'ocean eyes', NULL, NULL, 'Don''t Smile at Me', 2016),
