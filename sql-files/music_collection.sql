@@ -957,5 +957,9 @@ INSERT INTO grammy_wins (media_id, grammy_category, win_artist, win_song, win_al
   (269, 'Best Pop Vocal Album', 'Lady Gaga', NULL, 'The Fame Monster', 'album', 2011),
   (270, 'Best Female Pop Vocal Performance', 'Lady Gaga', 'Bad Romance', NULL, 'song', 2011),
   (317, 'Best Pop Solo Performance', 'Lady Gaga', 'Joanne', NULL, 'song', 2019),
-  (336, 'Best Pop Duo/Group Performance', 'Lady Gaga', 'Rain On Me', NULL, 'song', 2021)
+  (336, 'Best Pop Duo/Group Performance', 'Lady Gaga', 'Rain On Me', NULL, 'song', 2021),
+  (NULL, 'Best New Artist', 'Sam Smith', NULL, NULL, NULL, 2015),
+  (535, 'Best Pop Vocal Album', 'Sam Smith', NULL, 'In the Lonely Hour', 'album', 2015),
+  (538, 'Record of the Year', 'Sam Smith', 'Stay with Me', NULL, 'song', 2015),
+  (538, 'Song of the Year', 'Sam Smith', 'Stay with Me', NULL, 'song', 2015)
 ;
