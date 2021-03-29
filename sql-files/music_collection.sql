@@ -961,5 +961,6 @@ INSERT INTO grammy_wins (media_id, grammy_category, win_artist, win_song, win_al
   (NULL, 'Best New Artist', 'Sam Smith', NULL, NULL, NULL, 2015),
   (535, 'Best Pop Vocal Album', 'Sam Smith', NULL, 'In the Lonely Hour', 'album', 2015),
   (538, 'Record of the Year', 'Sam Smith', 'Stay with Me', NULL, 'song', 2015),
-  (538, 'Song of the Year', 'Sam Smith', 'Stay with Me', NULL, 'song', 2015)
+  (538, 'Song of the Year', 'Sam Smith', 'Stay with Me', NULL, 'song', 2015),
+  (679, 'Best Rap Album', 'Tyler, the Creator', NULL, 'IGOR', 'album', 2020)
 ;
