@@ -1,12 +1,4 @@
-\connect jazminesa
-
-DROP DATABASE IF EXISTS music_collection;
-CREATE DATABASE music_collection;
-
-\connect music_collection;
-
-DROP TABLE IF EXISTS artists;
-CREATE TABLE artists (
+CREATE TABLE IF NOT EXISTS artists (
   name varchar(100) PRIMARY KEY NOT NULL,
   genre varchar(100) NOT NULL,
   record_label varchar(100)
@@ -25,7 +17,6 @@ INSERT INTO artists (name, genre, record_label) VALUES
   ('Tyler, the Creator', 'Alt Hip Hop', 'Columbia Records')
 ;
 
-DROP TABLE IF EXISTS valid_media_type;
 CREATE TABLE valid_media_type (
   mtype text PRIMARY KEY NOT NULL
 );
@@ -36,7 +27,6 @@ INSERT INTO valid_media_type (mtype) VALUES
   ('song')
 ;
 
-DROP TABLE IF EXISTS music_catalog;
 CREATE TABLE music_catalog (
   artist varchar(100) REFERENCES artists (name) NOT NULL,
   id serial NOT NULL UNIQUE,
@@ -746,7 +736,6 @@ INSERT INTO music_catalog (artist, media_type, song_name, collab, collab_artists
   ('Tyler, the Creator', 'song', 'Tell Me How', NULL, NULL, '', 2021)
 ;
 
-DROP TABLE IF EXISTS riaa_certifications;
 CREATE TABLE riaa_certifications (
   media_id int PRIMARY KEY REFERENCES music_catalog (id) NOT NULL,
   riaa_cert varchar(100) DEFAULT NULL
@@ -923,7 +912,6 @@ INSERT INTO riaa_certifications (media_id, riaa_cert) VALUES
   (681, '3x Multi-Platinum')
 ;
 
-DROP TABLE IF EXISTS grammy_wins;
 CREATE TABLE grammy_wins (
   media_id int DEFAULT NULL,
   grammy_category text NOT NULL,

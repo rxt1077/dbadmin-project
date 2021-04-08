@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+        web-server:
+                build: 
+                        context: ./web-server
+                        dockerfile: ./web-server/Dockerfile
+                container_name: application
+                restart: on-failure
+                volumes:
+                        - "./web-server:/var/www/html"
+                ports:
+                        - "8880:80"
+                links:
+                        - 'postgres'
+
+        postgres:
+                build: ./sql-files
+                container_name: database
+                restart: on-failure
+                volumes:
+                        - psql-vol:/var/lib/postgresql/data/
+                        - ./sql-files/music_collection.sql:/docker-entrypoint-initdb.d/init.sql
+                ports:
+                        - "5432:5432"
+                env_file:
+                        - ./web-server/music_collection.env
+
+volumes:
+        psql-vol:
