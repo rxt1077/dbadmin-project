@@ -1,15 +1,4 @@
-FROM php:7.4.4-apache
-RUN apt-get update \
-  && apt-get upgrade -y \
-  && apt-get install -y \
-      libpq-dev \
-      pgsql \
-      php7.0-pgsql
-RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql 
-RUN docker-php-ext-install \
-  pdo \
-  pdo_pgsql \
-  pgsql \
-  php7.0-pgsql
-RUN set -ex && apk --no-cache add postgresql-dev
-RUN docker-php-ext-install mysqli
+FROM php:7-apache
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+RUN chmod +x /usr/local/bin/install-php-extensions
+RUN /usr/local/bin/install-php-extensions pdo_pgsql

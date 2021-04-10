@@ -15,30 +15,18 @@
       } catch (PDOException $pe) {
 	  die("Connection to $dbname failed: " . $pe->getMessage());
       }
-      
-      /*
-      if(! $dbc ) {
-        die("Connection failed: ".mysqli_connect_error());
-      }
-     
-      $dbc = pg_connect("host=$host dbname=$dbname user=$username password=$password");
-       */
 
-      
+# Now that you've got a PDO connection to your DB, you need to do the following in PDO (not mysqli):
+#
+#        echo
+#	  "<tr>
+#            <td>{$row['name']}</td>
+#	    <td>{$row['genre']}</td>
+#            <td>{$row['record_label']}</td>
+#	  </tr>";
+#      }
+#
 
-      $query = mysqli_query($conn, "SELECT * FROM artists")
-        or die (mysqli_error($conn).$query);
-
-      while ($row = mysqli_fetch_array($query)) {
-        echo
-	  "<tr>
-            <td>{$row['name']}</td>
-	    <td>{$row['genre']}</td>
-            <td>{$row['record_label']}</td>
-	  </tr>";
-      }
-
-      mysqli_close($conn);
     ?>
   </body>
 </html>
